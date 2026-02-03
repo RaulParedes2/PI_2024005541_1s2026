@@ -1,4 +1,6 @@
-Practicas iniciales 1a2026|
-_____________________________________________
-Raúl José Daniel Paredes González | 202400554|
-_____________________________________________
+# PI_1S2026
+Repositoriio de practics iniciales
+|Carnet|Nombre|Seccion|
+|------|------|-------|
+|20240554|Raúl José Daniel Paredes González>>|"C"|
+
