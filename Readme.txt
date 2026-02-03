@@ -1,1 +1,4 @@
-Raúl José Daniel Paredes González | 202400554
+Practicas iniciales 1a2026|
+_____________________________________________
+Raúl José Daniel Paredes González | 202400554|
+_____________________________________________
