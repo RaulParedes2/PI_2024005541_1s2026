@@ -1,4 +1,4 @@
-# PI_1S2026
+#PI_1S2026.
 Repositoriio de practics iniciales
 |Carnet|Nombre|Seccion|
 |------|------|-------|
