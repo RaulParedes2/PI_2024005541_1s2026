@@ -1,4 +1,29 @@
-**/*.localz
-**/*.local
-**/*.git
-**/*.DS_Store
+# Dependencias
+node_modules/
+
+# Archivos de entorno
+.env
+.env.local
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build / producción
+dist/
+build/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE
+.vscode/
+.idea/
+
+# Archivos temporales
+*.tmp
+*.log
+
