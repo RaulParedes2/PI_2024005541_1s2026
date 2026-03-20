@@ -101,4 +101,25 @@ INSERT INTO catedratico (nombre, apellido, departamento) VALUES
 -- Verificar datos insertados
 SELECT * FROM curso;
 SELECT * FROM catedratico;
+SELECT * FROM usuario;
+
+-- Ver todos los comentarios
+SELECT * FROM comentario;
+
+SELECT id_usuario, registro_academico, correo, password 
+FROM usuario 
+WHERE registro_academico = '20240605541';
+
+-- Ver cursos aprobados con detalles
+SELECT u.nombres, u.apellidos, c.nombre as curso, ca.nota, ca.fecha_aprobacion
+FROM curso_aprobado ca
+JOIN usuario u ON ca.usuario_id_usuario = u.id_usuario
+JOIN curso c ON ca.curso_id_curso = c.id_curso;
+
+-- Ver publicaciones con sus comentarios
+SELECT p.id_publicacion, p.mensaje as publicacion, 
+       COUNT(c.id_comentario) as total_comentarios
+FROM publicacion p
+LEFT JOIN comentario c ON p.id_publicacion = c.publicacion_id_publicacion
+GROUP BY p.id_publicacion;
 

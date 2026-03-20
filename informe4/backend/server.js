@@ -13,19 +13,23 @@ app.get('/', (req, res) => {
     res.json({ message: 'API funcionando correctamente' });
 });
 
-// Importar rutas (las crearemos después)
+// Importar rutas
 const usuarioRoutes = require('./src/routes/usuarioRoutes');
 const cursoRoutes = require('./src/routes/cursoRoutes');
 const publicacionRoutes = require('./src/routes/publicacionRoutes');
+const comentarioRoutes = require('./src/routes/comentarioRoutes');
+const catedraticoRoutes = require('./src/routes/catedraticoRoutes');
 
 // Usar rutas
 app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/cursos', cursoRoutes);
 app.use('/api/publicaciones', publicacionRoutes);
-
+app.use('/api/comentarios', comentarioRoutes);
+app.use('/api/catedraticos', catedraticoRoutes);
 const PORT = process.env.PORT || 3000;
 
 // Limpiar y reinsertar cursos
+/*
 app.get('/reset-cursos', async (req, res) => {
     try {
         const db = require('./src/config/database');
@@ -58,6 +62,32 @@ app.get('/reset-cursos', async (req, res) => {
         
     } catch (error) {
         console.error('Error:', error);
+        res.status(500).json({ error: error.message });
+    }
+});*/
+// ENDPOINT TEMPORAL PARA PROBAR ACTUALIZACIÓN
+app.post('/api/test-update-password', async (req, res) => {
+    try {
+        const db = require('./src/config/database');
+        const { registro_academico, correo, new_password } = req.body;
+        
+        console.log('Test - Datos:', { registro_academico, correo, new_password });
+        
+        // Actualizar directamente
+        const [result] = await db.execute(
+            'UPDATE usuario SET password = ? WHERE registro_academico = ? AND correo = ?',
+            [new_password, registro_academico, correo]
+        );
+        
+        console.log('Test - Resultado:', result);
+        
+        res.json({
+            message: 'Test completado',
+            affectedRows: result.affectedRows,
+            data: { registro_academico, correo, new_password }
+        });
+    } catch (error) {
+        console.error('Test - Error:', error);
         res.status(500).json({ error: error.message });
     }
 });

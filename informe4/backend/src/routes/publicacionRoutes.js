@@ -6,5 +6,6 @@ router.get('/', publicacionController.listarTodas);
 router.post('/', publicacionController.crear);
 router.get('/:id', publicacionController.obtenerPorId);
 router.get('/:id/comentarios', publicacionController.obtenerComentarios);
+router.delete('/:id', publicacionController.eliminar);
 
 module.exports = router;
