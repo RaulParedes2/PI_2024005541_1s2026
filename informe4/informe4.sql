@@ -106,9 +106,7 @@ SELECT * FROM usuario;
 -- Ver todos los comentarios
 SELECT * FROM comentario;
 
-SELECT id_usuario, registro_academico, correo, password 
-FROM usuario 
-WHERE registro_academico = '20240605541';
+
 
 -- Ver cursos aprobados con detalles
 SELECT u.nombres, u.apellidos, c.nombre as curso, ca.nota, ca.fecha_aprobacion
